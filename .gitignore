@@ -1,0 +1,7 @@
+/.vs/ISAccounts/config
+/.vs/ISAccounts/v16/
+/ISAccounts.Tests/bin/Debug/
+/ISAccounts.Tests/obj/
+/ISAccounts/bin/
+/ISAccounts/obj/
+/node_modules/
