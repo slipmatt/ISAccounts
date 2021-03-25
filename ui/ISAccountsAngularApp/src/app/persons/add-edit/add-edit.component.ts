@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {SharedService} from 'src/app/shared.service';
+import {PersonService} from 'src/app/_services/person.service';
 import { from } from 'rxjs';
+
 
 @Component({
   selector: 'app-add-edit',
@@ -9,7 +10,7 @@ import { from } from 'rxjs';
 })
 export class AddEditComponent implements OnInit {
 
-  constructor(private service: SharedService) { }
+  constructor(private service: PersonService) { }
 
   @Input() person:any;
   Code:number=0;
@@ -27,11 +28,11 @@ export class AddEditComponent implements OnInit {
 
   addPerson(){
   var val = {
-            Code: this.Code,
-            Name: this.Name,
-            Surname: this.Surname,
-            IdNumber:this.IdNumber,
-            Active:true 
+            code: this.Code,
+            name: this.Name,
+            surname: this.Surname,
+            idNumber:this.IdNumber,
+            active:true 
           }
   this.service.addPerson(val).subscribe(res=>{
     alert(res.userInterfaceMessage.toString())
@@ -41,11 +42,11 @@ export class AddEditComponent implements OnInit {
 
   updatePerson(){
     var val = {
-      Code: this.Code,
-      Name: this.Name,
-      Surname: this.Surname,
-      IdNumber:this.IdNumber,
-      Active:this.Active 
+      code: this.Code,
+      name: this.Name,
+      surname: this.Surname,
+      idNumber:this.IdNumber,
+      active:this.Active 
     }
 this.service.updatePerson(val).subscribe(res=>{
 alert(res.userInterfaceMessage.toString())

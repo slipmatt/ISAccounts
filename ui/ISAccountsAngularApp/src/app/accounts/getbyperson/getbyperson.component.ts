@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService} from 'src/app/shared.service';
+import {AccountService} from 'src/app/_services/account.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GetbyPersonComponent implements OnInit {
   person_id: any;
-  constructor(private actRoute: ActivatedRoute, private service: SharedService) { }
+  constructor(private actRoute: ActivatedRoute, private service: AccountService) { }
 
   AccountList:any=[];
   ModalTitle:string="";

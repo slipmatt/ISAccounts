@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SharedService} from 'src/app/shared.service';
+import { TransactionService} from 'src/app/_services/transaction.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GetbyaccountComponent implements OnInit {
   account_id: any;
-  constructor(private actRoute: ActivatedRoute, private service: SharedService) { }
+  constructor(private actRoute: ActivatedRoute, private service: TransactionService) { }
   TransactionList:any=[];
   ModalTitle:string="";
   ActivateAddEditTransactionComp:boolean=false;

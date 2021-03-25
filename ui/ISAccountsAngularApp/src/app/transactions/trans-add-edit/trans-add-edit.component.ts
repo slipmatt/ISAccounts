@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {SharedService} from 'src/app/shared.service';
+import { TransactionService} from 'src/app/_services/transaction.service';
 import { from } from 'rxjs';
 import { DatePipe } from '@angular/common'
 
@@ -16,7 +16,7 @@ export class TransAddEditComponent implements OnInit {
 
   public dateValue: Date = new Date();
 
-  constructor(public datepipe: DatePipe, private service: SharedService) { }
+  constructor(public datepipe: DatePipe, private service: TransactionService) { }
 
   @Input() transaction:any;
   Code:number=0;
@@ -38,12 +38,12 @@ export class TransAddEditComponent implements OnInit {
 
   addTransaction(){
   var val = {
-            Code: this.Code,
-            AccountCode: Number(this.AccountCode),
-            TransactionDate: this.datepipe.transform(this.TransactionDate, 'yyyy-MM-dd'),
-            CaptureDate:this.datepipe.transform(this.CaptureDate, 'yyyy-MM-dd'),
-            Amount:Number(this.Amount),
-            Description:this.Description,
+            code: Number(this.Code),
+            accountCode: Number(this.AccountCode),
+            transactionDate: this.TransactionDate,
+            captureDate:this.CaptureDate,
+            amount:Number(this.Amount),
+            description:this.Description
           }
           console.log(val);
   this.service.addTransaction(val).subscribe(res=>{

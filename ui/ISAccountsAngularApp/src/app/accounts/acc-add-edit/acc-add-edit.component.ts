@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {SharedService} from 'src/app/shared.service';
+import {AccountService} from 'src/app/_services/account.service';
 import { from } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { from } from 'rxjs';
 })
 export class AccountAddEditComponent implements OnInit {
 
-  constructor(private service: SharedService) { }
+  constructor(private service: AccountService) { }
 
   @Input() account:any;
   Code:number=0;
@@ -27,11 +27,11 @@ export class AccountAddEditComponent implements OnInit {
 
   addAccount(){
   var val = {
-            Code: this.Code,
-            PersonCode: Number(this.PersonCode),
-            AccountNumber: this.AccountNumber,
-            Balance:0,
-            Active:true 
+            code: Number(this.Code),
+            personCode: Number(this.PersonCode),
+            accountNumber: this.AccountNumber,
+            balance:0,
+            active:true 
           }
           console.log(val);
   this.service.addAccount(val).subscribe(res=>{

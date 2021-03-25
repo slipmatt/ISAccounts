@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService} from 'src/app/shared.service'
-
+import { PersonService} from 'src/app/_services/person.service'
+import {SearchModel} from 'src/app/core/Models/core.models';
 @Component({
   selector: 'app-getall',
   templateUrl: './getall.component.html',
@@ -8,13 +8,13 @@ import { SharedService} from 'src/app/shared.service'
 })
 export class GetallComponent implements OnInit {
 
-  constructor(private service: SharedService) { }
+  constructor(private service: PersonService) { }
 
   PersonList:any=[];
   ModalTitle:string="";
   ActivateAddEditPersonComp:boolean=false;
   person:any;
-  searchModel:any;
+  searchModel={} as SearchModel;
   ngOnInit(): void {
     this.refreshPersonsList();
   }
@@ -25,7 +25,7 @@ export class GetallComponent implements OnInit {
     })
   }
 
-  searchPersonsList(item:any){
+  searchPersonsList(item:SearchModel){
     this.searchModel={
       idNumber:item.idNumber,
       surname:item.surname,

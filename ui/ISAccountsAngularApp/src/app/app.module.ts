@@ -19,8 +19,9 @@ import { CloseComponent } from './accounts/close/close.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { GetbyaccountComponent } from './transactions/getbyaccount/getbyaccount.component';
 
-
-import {SharedService} from './shared.service';
+import {PersonService} from './_services/person.service';
+import {AccountService} from './_services/account.service';
+import {TransactionService} from './_services/transaction.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
@@ -58,7 +59,7 @@ import { ContactComponent } from './contact/contact.component';
     ReactiveFormsModule,
     DatePickerModule 
   ],
-  providers: [SharedService, DatePipe],
+  providers: [PersonService, AccountService, TransactionService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
