@@ -10,7 +10,7 @@ export class AccountService {
   readonly APIUrl = 'https://localhost:44348';
     constructor(private http:HttpClient) { }
   
-    addAccount(val:AccountModel){
+    addAccount(val:AccountModel): Observable<ResponseModel>{
       return this.http.post<ResponseModel>(this.APIUrl+'/Accounts/CreateAccount',val);
     }
   

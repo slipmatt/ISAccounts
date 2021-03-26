@@ -10,7 +10,7 @@ export class TransactionService {
   readonly APIUrl = 'https://localhost:44348';
     constructor(private http:HttpClient) { }
   
-    addTransaction(val:TransactionModel){
+    addTransaction(val:TransactionModel): Observable<ResponseModel>{
       return this.http.post<ResponseModel>(this.APIUrl+'/Transactions/CreateTransaction',val);
     }
   

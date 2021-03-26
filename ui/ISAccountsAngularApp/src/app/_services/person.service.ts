@@ -18,22 +18,22 @@ export class PersonService {
       return this.http.get<ResponseModel>(this.APIUrl+'/Person/GetPersonByCode/'+val);
     }
   
-    addPerson(val:PersonModel){
+    addPerson(val:PersonModel): Observable<ResponseModel>{
       console.log(val);
       return this.http.post<ResponseModel>(this.APIUrl+'/Person/CreatePerson',val);
     }
   
-    updatePerson(val:PersonModel){
+    updatePerson(val:PersonModel): Observable<ResponseModel>{
       console.log(val);
       return this.http.post<ResponseModel>(this.APIUrl+'/Person/UpdatePerson',val);
     }
   
-    deletePerson(val:number){
+    deletePerson(val:number): Observable<ResponseModel>{
       console.log(val);
       return this.http.get<ResponseModel>(this.APIUrl+'/Person/DeletePerson/'+val);
     }
   
-    searchPerson(val:SearchModel){
+    searchPerson(val:SearchModel): Observable<ResponseModel>{
       return this.http.post<ResponseModel>(this.APIUrl+'/Person/SearchPeople',val);
     }
 }
