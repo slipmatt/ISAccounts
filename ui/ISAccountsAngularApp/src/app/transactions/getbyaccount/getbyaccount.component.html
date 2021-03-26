@@ -38,7 +38,7 @@ data-backdrop="static" data-keyboard="false"
         <th>Description</th>
     </thead>
     <tbody>
-        <tr *ngFor='let dataItem of TransactionList'>
+        <tr *ngFor='let dataItem of PageOfTransactionList'>
             <td>{{dataItem.code}}</td>
             <td>{{dataItem.accountCode}}</td>
             <td>{{dataItem.transactionDate}}</td>
@@ -47,4 +47,8 @@ data-backdrop="static" data-keyboard="false"
             <td>{{dataItem.description}}</td>
         </tr>
     </tbody>
+    <tfoot>
+      <jw-pagination [items]="TransactionList" (changePage)="onChangePage($event)"></jw-pagination>
+    </tfoot>
+  
 </table>

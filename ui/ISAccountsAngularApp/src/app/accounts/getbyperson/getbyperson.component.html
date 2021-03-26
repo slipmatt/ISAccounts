@@ -37,7 +37,7 @@ data-backdrop="static" data-keyboard="false"
         <th>Options</th>
     </thead>
     <tbody>
-        <tr *ngFor='let dataItem of AccountList'>
+        <tr *ngFor='let dataItem of PageOfAccountList'>
             <td>{{dataItem.code}}</td>
             <td>{{dataItem.accountNumber}}</td>
             <td>{{dataItem.balance}}</td>
@@ -62,4 +62,7 @@ data-backdrop="static" data-keyboard="false"
             </td>
         </tr>
     </tbody>
+    <tfoot>
+      <jw-pagination [items]="AccountList" (changePage)="onChangePage($event)"></jw-pagination>
+    </tfoot>
 </table>

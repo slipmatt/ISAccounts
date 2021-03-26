@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AccountService} from 'src/app/_services/account.service';
 import { ActivatedRoute } from '@angular/router';
+import {AccountModel} from 'src/app/core/Models/core.models';
 
 @Component({
   selector: 'app-getbyperson',
@@ -11,7 +12,8 @@ export class GetbyPersonComponent implements OnInit {
   person_id: any;
   constructor(private actRoute: ActivatedRoute, private service: AccountService) { }
 
-  AccountList:any=[];
+  AccountList:Array<AccountModel>=[];
+  PageOfAccountList:Array<AccountModel>=[];
   ModalTitle:string="";
   ActivateAddEditAccountComp:boolean=false;
   account:any;
@@ -28,6 +30,11 @@ export class GetbyPersonComponent implements OnInit {
       console.log(data.returnObject);
       this.AccountList=data.returnObject;
     })
+  }
+
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.PageOfAccountList = pageOfItems;
   }
 
   addAccountClick(){

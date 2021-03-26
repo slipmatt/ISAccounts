@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TransactionService} from 'src/app/_services/transaction.service';
 import { ActivatedRoute } from '@angular/router';
-
+import {TransactionModel} from 'src/app/core/Models/core.models';
 @Component({
   selector: 'app-getbyaccount',
   templateUrl: './getbyaccount.component.html',
@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class GetbyaccountComponent implements OnInit {
   account_id: any;
   constructor(private actRoute: ActivatedRoute, private service: TransactionService) { }
-  TransactionList:any=[];
+  TransactionList: Array<TransactionModel>=[];
+  PageOfTransactionList: Array<TransactionModel>=[];
   ModalTitle:string="";
   ActivateAddEditTransactionComp:boolean=false;
   transaction:any;
@@ -27,6 +28,12 @@ export class GetbyaccountComponent implements OnInit {
       this.TransactionList=data.returnObject;
     })
   }
+
+  
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.PageOfTransactionList = pageOfItems;
+}
 
   addTransactionClick(){
     this.transaction={

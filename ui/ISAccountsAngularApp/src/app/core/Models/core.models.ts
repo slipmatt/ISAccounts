@@ -34,4 +34,5 @@ export interface TransactionModel {
     transactionDate: Date;
     captureDate: Date;
     amount: number;
+    description: string;
   }

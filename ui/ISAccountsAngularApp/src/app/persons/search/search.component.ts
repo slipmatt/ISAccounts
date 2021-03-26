@@ -8,13 +8,16 @@ import {SearchModel} from 'src/app/core/Models/core.models';
 
 
 export class SearchComponent implements OnInit {
-@Output() personList = new EventEmitter<SearchModel>();
+@Output() searchEvent = new EventEmitter<SearchModel>();
+
 searchModel={} as SearchModel;
   constructor() { }
 
   ngOnInit(): void {
   }
-searchPeople() {
-  this.personList.emit(this.searchModel)
+  
+searchPeople(value: SearchModel) {
+  console.log(value);
+  this.searchEvent.emit(value)
 }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
@@ -53,6 +54,7 @@ import { ContactComponent } from './contact/contact.component';
   ],
   imports: [
     BrowserModule,
+    JwPaginationModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

@@ -11,7 +11,8 @@ export class GetallComponent implements OnInit {
 
   constructor(private service: PersonService) { }
 
-  PersonList:any=[];
+  PersonList:Array<PersonModel>=[];
+  PageOfPersonList: Array<PersonModel>=[];
   ModalTitle:string="";
   ActivateAddEditPersonComp:boolean=false;
   ActivateSearchPersonComp:boolean=false;
@@ -26,6 +27,11 @@ export class GetallComponent implements OnInit {
       this.PersonList=data.returnObject;
     })
   }
+
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.PageOfPersonList = pageOfItems;
+}
 
   searchPersonClick(){
     this.ActivateSearchPersonComp=true;
