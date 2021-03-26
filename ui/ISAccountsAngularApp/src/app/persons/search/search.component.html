@@ -1,1 +1,26 @@
-<p>search works!</p>
+<div class='form-group row'>
+    <label class="col-sm-4 col-form-label">Surname</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="searchModel.surname" placeholder="Surname">
+    </div>
+</div>
+<div class='form-group row'>
+    <label class="col-sm-4 col-form-label">Id Number</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="searchModel.idNumber" placeholder="Id Number">
+    </div>
+</div>
+<div class='form-group row'>
+    <label class="col-sm-4 col-form-label">Account Number</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="searchModel.accountNumber" placeholder="Account Number">
+    </div>
+</div>
+<div class='form-group-row'>
+    <div class="col col-sm-2 col-offset-10">
+        <button type="button" class="btn btn-primary"  
+        (click)="searchPeople()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg> Search</button>
+    </div>
+</div>

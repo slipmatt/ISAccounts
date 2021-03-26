@@ -18,39 +18,39 @@ export class AddEditComponent implements OnInit {
   Surname:string="";
   IdNumber:string="";
   Active:boolean=true;
-  ngOnInit(): void {
-    this.Code = this.person.code;
-    this.Name = this.person.name;
-    this.Surname = this.person.surname;
-    this.IdNumber = this.person.idNumber;
-    this.Active = this.person.active;
-  }
+    ngOnInit(): void {
+      this.Code = this.person.code;
+      this.Name = this.person.name;
+      this.Surname = this.person.surname;
+      this.IdNumber = this.person.idNumber;
+      this.Active = this.person.active;
+    }
 
-  addPerson(){
-  var val = {
-            code: this.Code,
-            name: this.Name,
-            surname: this.Surname,
-            idNumber:this.IdNumber,
-            active:true 
-          }
-  this.service.addPerson(val).subscribe(res=>{
-    alert(res.userInterfaceMessage.toString())
-  });
-        
-  }
-
-  updatePerson(){
+    addPerson(){
     var val = {
       code: this.Code,
       name: this.Name,
       surname: this.Surname,
       idNumber:this.IdNumber,
-      active:this.Active 
+      active:true 
     }
-this.service.updatePerson(val).subscribe(res=>{
-alert(res.userInterfaceMessage.toString())
-});
+    this.service.addPerson(val).subscribe(res=>{
+      alert(res.userInterfaceMessage.toString())
+    });
+          
+    }
+
+    updatePerson(){
+      var val = {
+        code: this.Code,
+        name: this.Name,
+        surname: this.Surname,
+        idNumber:this.IdNumber,
+        active:this.Active 
+      }
+      this.service.updatePerson(val).subscribe(res=>{
+      alert(res.userInterfaceMessage.toString())
+    });
  
   }
 }

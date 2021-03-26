@@ -13,6 +13,7 @@ export class GetallComponent implements OnInit {
   PersonList:any=[];
   ModalTitle:string="";
   ActivateAddEditPersonComp:boolean=false;
+  ActivateSearchPersonComp:boolean=false;
   person:any;
   searchModel={} as SearchModel;
   ngOnInit(): void {
@@ -25,6 +26,12 @@ export class GetallComponent implements OnInit {
     })
   }
 
+  searchPersonClick(){
+    this.ActivateSearchPersonComp=true;
+  }
+  OnSearch(event:any){
+    console.log(event)
+  }
   searchPersonsList(item:SearchModel){
     this.searchModel={
       idNumber:item.idNumber,
